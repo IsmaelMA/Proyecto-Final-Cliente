@@ -9,7 +9,7 @@ public interface IClienteService {
 
     // Gets
 
-    public List<Cliente> encontrarPorApellido(String apellido);
+    public List<Cliente> encontrarClientesPorApellido(String apellido);
 
     public List<Cliente> listarTodosLosClientes();
 
@@ -19,7 +19,7 @@ public interface IClienteService {
 
     // Put
 
-    public Cliente actualizarClientePorID(int id, String nombre, String apellido);
+    public void actualizarClientePorID(int id, String nombre, String apellido);
 
     // Delete
 

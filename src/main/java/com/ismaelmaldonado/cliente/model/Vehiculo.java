@@ -1,5 +1,7 @@
 package com.ismaelmaldonado.cliente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Representa un Vehiculo en el sistema.
  * Esta entidad contiene detalles específicos de un vehículo y su relación con
@@ -31,6 +33,7 @@ public class Vehiculo {
      * Representa la relación con un Cliente.
      * Un vehículo puede pertenecer a un solo cliente.
      */
+    @JsonIgnore
     private Cliente cliente;
 
     private int clienteId;

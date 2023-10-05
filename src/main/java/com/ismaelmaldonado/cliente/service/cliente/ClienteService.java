@@ -24,32 +24,28 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public List<Cliente> encontrarPorApellido(String apellido) {
-        return Arrays.asList(template.getForObject(URL, Cliente[].class));
+    public List<Cliente> encontrarClientesPorApellido(String apellido) {
+        return Arrays.asList(template.getForObject(URL + "/detalle/ " + apellido, Cliente[].class));
     }
 
     @Override
     public Cliente encontrarPorId(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'encontrarPorId'");
+        return template.getForObject(URL + "/" + id, Cliente.class);
     }
 
     @Override
     public List<Vehiculo> encontrarVehiculosPorIdCliente(int idCliente) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'encontrarVehiculosPorIdCliente'");
+        return Arrays.asList(template.getForObject(URL + "/" + idCliente + "/vehiculos", Vehiculo[].class));
     }
 
     @Override
-    public Cliente actualizarClientePorID(int id, String nombre, String apellido) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actualizarClientePorID'");
+    public void actualizarClientePorID(int id, String nombre, String apellido) {
+        template.put(URL + "/" + id + "/" + nombre + "/" + apellido, null);
     }
 
     @Override
     public void eliminarClientePorID(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminarClientePorID'");
+        template.delete(URL + "/" + id);
     }
 
     @Override
