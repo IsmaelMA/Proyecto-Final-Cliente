@@ -33,6 +33,8 @@ public class Vehiculo {
      */
     private Cliente cliente;
 
+    private int clienteId;
+
     /**
      * Constructor por defecto.
      */
@@ -46,15 +48,6 @@ public class Vehiculo {
      */
     public Vehiculo(int id) {
         this.id = id;
-    }
-
-    /**
-     * Proporciona el identificador del cliente asociado a este Vehículo.
-     * 
-     * @return Identificador del Cliente asociado o null si no hay Cliente asociado.
-     */
-    public Integer getClienteId() {
-        return (cliente != null) ? cliente.getId() : null;
     }
 
     // ... Getters, Setters, hashCode, equals y toString ...
@@ -153,6 +146,14 @@ public class Vehiculo {
     public String toString() {
         return "Vehiculo [matricula=" + matricula + ", idCliente=" + cliente.getId() + ", fabricante=" + fabricante
                 + ", modelo=" + modelo + "]";
+    }
+
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
+    }
+
+    public int getClienteId() {
+        return this.clienteId;
     }
 
 }
